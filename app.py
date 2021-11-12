@@ -54,7 +54,7 @@ def main_page():
         sort_string = sort.data['select']
         map_string_to_column = {'Date d\'ajout': desc(VideoFile.date_added),
                                 'Nombre de lectures': desc(VideoFile.nb_lecture),
-                                'Utilisateur': asc(VideoFile.User.username),
+                                'Utilisateur': asc(VideoFile.user),
                                 'Nom': asc(VideoFile.title)}
         column_sort = map_string_to_column[sort_string]
 
