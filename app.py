@@ -120,7 +120,6 @@ def add_lecture_count():
     if request.method == 'POST':
 
         file_id = request.json['id']
-
         item = VideoFile.query.filter_by(id=file_id).first()
         item.nb_lecture = item.nb_lecture +1
         db.session.commit()
