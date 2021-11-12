@@ -11,3 +11,4 @@ Werkzeug==1.0.1
 flask-wtf
 git+git://github.com/Uberi/speech_recognition.git
 pydub
+Flask-Migrate
