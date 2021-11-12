@@ -54,7 +54,7 @@
     <figure>
       <figcaption>{{item.title}}, par {{item.user}}, lu {{item.nb_lecture}} fois</figcaption>
 
-        <video onplay="count(this)" id={{ item.id }} controls>
+        <video width="320" height="180" onplay="count(this)" id={{ item.id }} controls>
           <source src={{ url_for('static', filename = 'video_files/') }}{{ item.filename }} type="video/mp4">
 
         Your browser does not support the audio element.
