@@ -48,14 +48,15 @@ def main_page():
     if not os.path.exists(app.config['UPLOAD_PATH']):
         init()
 
-    column_sort = asc(VideoFile.id)
+    column_sort = desc(VideoFile.nb_lecture)
     sort = SortForm(request.form)
     if request.method == 'POST' and sort.data['select'] is not None:
         sort_string = sort.data['select']
         map_string_to_column = {'Date d\'ajout': desc(VideoFile.date_added),
                                 'Nombre de lectures': desc(VideoFile.nb_lecture),
-                                'Utilisateur': asc(VideoFile.user),
-                                'Nom': asc(VideoFile.title)}
+                                #'Utilisateur': asc(VideoFile.user),
+                                #'Nom': asc(VideoFile.title)
+                                }
         column_sort = map_string_to_column[sort_string]
 
     items = VideoFile.query.order_by(column_sort).all()
