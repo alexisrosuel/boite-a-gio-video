@@ -101,9 +101,9 @@ def upload_file():
             os.makedirs(app.config['UPLOAD_PATH'])
 
         if filename != '':
-            file_ext = os.path.splitext(filename)[1]
+            file_ext = os.path.splitext(filename)[1].lower()
             if file_ext not in app.config['UPLOAD_EXTENSIONS']:
-                abort(400)
+                return 'extension vidéo non prise en charge : %s' % file_ext
             uploaded_file.save(os.path.join(app.config['UPLOAD_PATH'], filename))
 
         model = VideoFile(title=title, user=user, filename=filename, file=byte_array, user_id=user_id)
